@@ -13,12 +13,19 @@
         </tr>
       </thead>
       <tbody v-if="pizzas && pizzas.length > 0">
-        <tr v-for="(pizza, i) in pizzas" :key="i" :class="{'bg-danger': pizza.stock === 0}">
+        <tr
+          v-for="(pizza, i) in pizzas"
+          :key="i"
+          :class="{ 'bg-danger': pizza.stock === 0 }"
+        >
           <th scope="row">{{ i + 1 }}</th>
-              <td>{{ pizza.id }}</td>
-              <td>{{ pizza.name }}</td>
-              <td>${{ pizza.price }}</td>
-              <td>{{ pizza.stock }}</td>
+          <td>{{ pizza.id }}</td>
+          <td>{{ pizza.name }}</td>
+          <td>${{ pizza.price }}</td>
+          <td>{{ pizza.stock }}</td>
+          <td>
+            <button class="btn btn-danger" @click="eliminarPizza(pizza.id)">Eliminar</button>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -26,14 +33,18 @@
 </template>
 
 <script>
-import { mapState } from "vuex"
-  export default {
-    computed: {
-      ...mapState(['pizzas'])
-    },
-  }
+import { mapState, mapActions } from "vuex";
+export default {
+  computed: {
+    ...mapState(["pizzas"]),
+    methods: {
+      ...mapActions(["borrarPizzas"]),
+      eliminarPizza(id) {
+        this.borrarPizzas(id);
+      }
+    }
+  },
+};
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

@@ -24,6 +24,9 @@
           <li class="nav-item">
             <router-link :to="{name: 'Ventas'}" class="nav-link">Ventas</router-link>
           </li>
+          <li class="nav-item">
+            <router-link :to="{name: 'AñadirPizzas'}" class="nav-link">Añadir Pizzas</router-link>
+          </li>
         </ul>
 
         <span @click="$router.push('/carrito')" class="numeroCarrito">{{numeroCarrito}}</span><i class="fas fa-shopping-cart" @click="$router.push('/carrito')"></i>

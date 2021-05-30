@@ -4,6 +4,7 @@ import Home from "../views/Home.vue";
 import Inventario from "../views/Inventario.vue"
 import Ventas from "../views/Ventas.vue"
 import Carrito from "../views/Carrito.vue"
+import AñadirPizzas from "../views/AñadirPizzas.vue"
 import Error404 from "../views/Error404.vue"
 
 Vue.use(VueRouter);
@@ -29,6 +30,11 @@ const routes = [
     name: "Carrito",
     component: Carrito
   },
+  {
+  path: "/añadirpizzas",
+  name: "AñadirPizzas",
+  component: AñadirPizzas
+},
   {
     path: "*",
     name: "Error404",
